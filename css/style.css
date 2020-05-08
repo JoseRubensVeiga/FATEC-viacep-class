@@ -1,0 +1,15 @@
+body {
+  background-color: #7f71ff;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+
+  place-content: center;
+}
+
+form {
+  background-color: white;
+  padding: 30px 30px 20px;
+  border-radius: 8px;
+  box-shadow: 4px 8px 20px 0px #00000040;
+}
