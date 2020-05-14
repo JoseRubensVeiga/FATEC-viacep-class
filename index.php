@@ -1,6 +1,8 @@
 <?php
 
-include_once 'consulta.php';
+include_once('./postmon.php');
+
+$address = searchAddress();
 
 ?>
 
@@ -22,7 +24,7 @@ include_once 'consulta.php';
             type="text"
             class="form-control"
             name="zipcode"
-            value="<?php echo $addres->cep ?>"
+            value="<?php echo $address->cep ?>"
             placeholder="CEP"
             autocomplete="off"
           />
@@ -35,7 +37,7 @@ include_once 'consulta.php';
           type="text"
           class="form-control"
           placeholder="Rua"
-          value="<?php echo $addres->logradouro ?>"
+          value="<?php echo $address->logradouro ?? ''?>"
           disabled
         />
       </div>
@@ -44,7 +46,7 @@ include_once 'consulta.php';
           type="text"
           class="form-control"
           placeholder="Bairro"
-          value="<?php echo $addres->bairro ?>"
+          value="<?php echo $address->bairro ?? ''?>"
           disabled
         />
       </div>
@@ -53,7 +55,7 @@ include_once 'consulta.php';
           type="text"
           class="form-control"
           placeholder="Cidade"
-          value="<?php echo $addres->localidade ?>"
+          value="<?php echo $address->localidade ?? $address->cidade ?>"
           disabled
         />
       </div>
@@ -62,7 +64,7 @@ include_once 'consulta.php';
           type="text"
           class="form-control"
           placeholder="Estado"
-          value="<?php echo $addres->uf ?>"
+          value="<?php echo $address->uf ?? $address->estado ?>"
           disabled
         />
       </div>

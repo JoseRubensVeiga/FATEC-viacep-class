@@ -3,16 +3,15 @@
 require_once('./ValidateZipCode.php');
 require_once('./FindAddress.php');
 require_once('./Normalize.php');
-require_once('./ViaCepFinder.php');
+require_once('./PostmonFinder.php');
 
 require_once('./functions.php');
-
 
 function searchAddress() {
     $address = addressFactory();
     $normalize = new Normalize();
-    $viaCepFinder = new ViaCepFinder();
-    $findAddress = new FindAddress($viaCepFinder);
+    $finder = new PostmonFinder();
+    $findAddress = new FindAddress($finder);
     $validateZipCode = new ValidateZipCode();
     
     if (isset($_POST['zipcode'])) {
