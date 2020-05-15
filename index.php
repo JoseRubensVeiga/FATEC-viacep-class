@@ -19,7 +19,13 @@ $finder = isset($_POST['finder']) ? $_POST['finder'] : 'viacep';
   </head>
   <body>
     <form method="post">
-      <h2 class="text-center font-weight-light mb-5">Digite o CEP para encontrar o endereço</h2>
+      <h2 class="text-center font-weight-light">Digite o CEP para encontrar o endereço</h2>
+      <?php if($finderName != ''): ?>
+      <p class="text-center font-weight-light">
+        Consultando com o <?php echo $finderName; ?>
+      </p>
+      <?php endif; ?>
+      <div class="mb-5"></div>
         <div class="form-group">
           <input
             type="text"

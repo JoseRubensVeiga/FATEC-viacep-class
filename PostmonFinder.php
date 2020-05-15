@@ -14,7 +14,7 @@ class PostmonFinder implements AbstractAddress
             "logradouro" => $response->logradouro ?? '',
             "bairro" => $response->bairro ?? '',
             "localidade" => $response->cidade ?? '',
-            "uf" => $response->estado->sigla ?? ''
+            "uf" => $response->estado ?? ''
         ];
     }
 }

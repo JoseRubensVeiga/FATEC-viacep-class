@@ -8,7 +8,6 @@ require_once('./PostmonFinder.php');
 require_once('./functions.php');
 
 function searchAddress() {
-    echo "consultando com o postmon";
     $address = addressFactory();
     $normalize = new Normalize();
     $finder = new PostmonFinder();

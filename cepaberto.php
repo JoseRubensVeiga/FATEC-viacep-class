@@ -9,7 +9,6 @@ require_once('./functions.php');
 
 
 function searchAddress() {
-    echo "consultando com o cepaberto";
     $address = addressFactory();
     $normalize = new Normalize();
     $finder = new CepAbertoFinder();

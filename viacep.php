@@ -9,7 +9,6 @@ require_once('./functions.php');
 
 
 function searchAddress() {
-    echo "consultando com o viacep";
     $address = addressFactory();
     $normalize = new Normalize();
     $finder = new ViaCepFinder();
