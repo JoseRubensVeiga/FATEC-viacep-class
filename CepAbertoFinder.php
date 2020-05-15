@@ -2,10 +2,10 @@
 
 include_once('./AbstractAddress.php');
 
-class PostmonFinder implements AbstractAddress
+class CepAbertoFinder implements AbstractAddress
 {
     public function getUrl($zipCode) {
-        return 'https://api.postmon.com.br/v1/cep/'.$zipCode;
+        return 'http://www.cepaberto.com/api/v3/cep?cep=' . $zipCode;
     }
 
     public function normalizeResponse($response) {
@@ -13,7 +13,7 @@ class PostmonFinder implements AbstractAddress
             "cep" => $response->cep ?? '',
             "logradouro" => $response->logradouro ?? '',
             "bairro" => $response->bairro ?? '',
-            "localidade" => $response->cidade ?? '',
+            "localidade" => $response->cidade->nome ?? '',
             "uf" => $response->estado->sigla ?? ''
         ];
     }

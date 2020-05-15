@@ -3,15 +3,16 @@
 require_once('./ValidateZipCode.php');
 require_once('./FindAddress.php');
 require_once('./Normalize.php');
-require_once('./PostmonFinder.php');
+require_once('./ViaCepFinder.php');
 
 require_once('./functions.php');
 
+
 function searchAddress() {
-    echo "consultando com o postmon";
+    echo "consultando com o viacep";
     $address = addressFactory();
     $normalize = new Normalize();
-    $finder = new PostmonFinder();
+    $finder = new ViaCepFinder();
     $findAddress = new FindAddress($finder);
     $validateZipCode = new ValidateZipCode();
     
@@ -32,4 +33,3 @@ function searchAddress() {
 
     return $address;
 }
-

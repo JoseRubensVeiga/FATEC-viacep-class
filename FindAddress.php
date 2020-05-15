@@ -21,9 +21,9 @@ class FindAddress
         $this->zipCode = $zipCode;
     }
 
-    public function search() {
+    public function search($context = null) {
         $url = $this->zipCodeFinder->getUrl($this->zipCode);
 
-        return json_decode(file_get_contents($url));
+        return json_decode(file_get_contents($url, false, $context));
     }
 }

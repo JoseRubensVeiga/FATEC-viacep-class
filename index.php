@@ -1,8 +1,9 @@
 <?php
 
-include_once('./postmon.php');
+require_once('./consulta.php');
 
 $address = searchAddress();
+$finder = isset($_POST['finder']) ? $_POST['finder'] : 'viacep';
 
 ?>
 
@@ -28,6 +29,13 @@ $address = searchAddress();
             placeholder="CEP"
             autocomplete="off"
           />
+        </div>
+        <div class="form-group">
+          <select name="finder" class="form-control">
+            <option value="viacep" <?php echo $finder === 'viacep' ? 'selected' : '' ?>>ViaCep</option>
+            <option value="postmon" <?php echo $finder === 'postmon' ? 'selected' : '' ?>>Postmon</option>
+            <option value="cepaberto" <?php echo $finder === 'cepaberto' ? 'selected' : '' ?>>CepAberto</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary btn-block mb-3">
           Enviar
@@ -55,7 +63,7 @@ $address = searchAddress();
           type="text"
           class="form-control"
           placeholder="Cidade"
-          value="<?php echo $address->localidade ?? $address->cidade ?>"
+          value="<?php echo $address->localidade ?? '' ?>"
           disabled
         />
       </div>
@@ -64,7 +72,7 @@ $address = searchAddress();
           type="text"
           class="form-control"
           placeholder="Estado"
-          value="<?php echo $address->uf ?? $address->estado ?>"
+          value="<?php echo $address->uf ?? '' ?>"
           disabled
         />
       </div>
